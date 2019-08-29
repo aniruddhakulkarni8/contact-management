@@ -1,4 +1,4 @@
-angular.module('contactsApp',['ui.router'])
+angular.module('contactsApp',[])
 .config(function($stateProvider, $urlProvider){
     $urlRouterProvider.otherwise('/');
 
