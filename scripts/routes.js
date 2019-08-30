@@ -1,14 +1,14 @@
-angular.module('contactsApp',[])
-.config(function($stateProvider, $urlProvider){
+
+app.config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
     .state('list',{
-        url:'/list',
+        url:'/',
         templateUrl:'./templates/list.html'
     })
-    .state('add',{
-        url:'/add',
-        template:'add'
+    .state('contact',{
+        url:'/contact',
+        templateUrl:'./templates/addUpdate.html'
     })
 })

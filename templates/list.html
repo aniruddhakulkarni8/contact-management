@@ -1,1 +1,29 @@
-<h1>List</h1>
+<section class="container">
+    <div class="card-deck row">
+        <div class="col-sm-3 mb-2" ng-repeat="contact in contactList">
+              <div class="card" >
+                      <img class="card-img-top" src="media/man.svg" alt="Card image cap">
+                      <div class="card-body">
+                     
+                        <h5 class="card-title">{{contact.firstName}} {{contact.lastName}}</h5>
+                        <p class="card-text">Contact No.: {{contact.phone_no}}</p>
+                        <div ng-show="more">
+                            <p class="card-text">{{contact.email}}</p>
+                        </div>
+                       
+                       
+                       <a ng-show="!more" class="font-weight-light" ng-click="more=!more">Show More <i class="fa fa-angle-down"></i></button></a>
+                       <a ng-show="more" class="font-weight-light" ng-click="more=!more">Show Less <i class="fa fa-angle-up"></i></button></a>
+                        <div class="btn-group">
+                          <button class="btn btn-secondary">Edit</button>
+                        
+                          <button class="btn btn-secondary">Delete</button>
+                        </div>
+                      </div>
+                     
+                    </div>
+        </div>
+          
+    </div>
+
+</section>

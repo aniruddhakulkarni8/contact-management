@@ -1,1 +1,1 @@
-var app = angular.module('contactsApp',[]);
+var app = angular.module('contactsApp',['ui.router']);

@@ -1,28 +1,43 @@
-angular.module('contactsApp', [])
-// .factory('contactService',function($http){
-//     var contactFact=[];
-   
-//     contactFact.getList=function(){
-//         return $http
-//         .get('https://my-json-server.typicode.com/aniruddhakulkarni8/contact-management/db')
-        
-//     }
-//     return contactFact;
-// })
-    .controller('contactsController', ['$scope',
-    'contactService',
-        function ($scope,contactService) {
+
+    app.controller('contactsController', 
+        function ($scope,
+                contactService,
+                $state) {
             var ctrl = this;
             ctrl.name = 'my name';
-
-            ctrl.getContacts = function () {
+            $scope.contactData;
+            $scope.more = false;
+            $scope.getContacts = function () {
                  contactService.getList()
                  .then(function(response){
-                     $scope.contactList = response.data;
+                     $scope.contactList = response.data.data;
+                     console.log($scope.contactList);
                  },function(err){
                      console.log(err);
                  })
             }
-            ctrl.getContacts();
-        }])
+            $scope.getContacts();
+
+            $scope.goTo=function(componentState){
+                switch (componentState) {
+                    case 'list':
+                        $state.go('list')
+                        break;
+                    case 'contactForm':
+                        $state.go('contact')
+                        break;
+                
+                    default:
+                            $state.go('list')
+                        break;
+                }
+                
+            }
+
+            $scope.saveContact=function(data){
+                console.log(data);
+                $scope.goTo('list');
+                
+            }
+        })
 

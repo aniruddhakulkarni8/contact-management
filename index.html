@@ -6,62 +6,31 @@
     <title>Document</title>
     <!-- STYLES -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/contacts-custom.css">
     <!-- SCRIPTS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://unpkg.com/@uirouter/angularjs@1.0.7/release/angular-ui-router.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="./scripts/module.js"></script>
-    
     <script src="./scripts/routes.js"></script>
-    
     <script src="./scripts/controller.js"></script>
     <script src="./scripts/service.js"></script>
 </head>
-<body ng-controller="contactsController as ctrl"> 
+<body ng-controller="contactsController"> 
    
     <!-- Navigation Bar -->
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-          <div class="bg-dark p-4">
-            <h4 class="text-white">Collapsed content</h4>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
-          </div>
-        </div>
-        <nav class="navbar navbar-dark bg-dark">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <a class="navbar-brand" href="#">Contacts</a>
-        </nav>
-      </div>
+      <div ng-include="'templates/nav.html'"></div>
       <!-- End of Navigation Bar -->
-
+     
       <!-- Main Section -->
-
-      <section class="container">
-          <div class="card-deck row">
-              <div class="col-sm-4" >
-                    <div class="card" ng-repeat="contact in contactList">
-                            <img class="card-img-top" src="media/man.svg" alt="Card image cap">
-                            <div class="card-body">
-                             
-                              <h5 class="card-title">{{contact.firstname}} {{contact.lastName}}</h5>
-                              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                          </div>
-              </div>
-                
-          </div>
-            <table>
-              <tr ng-repeat="contact in contactList"><td>{{contact}}</td></tr>
-            </table>
-
-      </section>
+      <div ui-view></div>
+     
       <!-- End of Main Section -->
+
+      
    
 </body>
 </html>

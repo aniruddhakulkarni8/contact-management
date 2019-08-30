@@ -1,5 +1,5 @@
-angular.module('contactsApp',[])
-.factory('contactService',function($http){
+
+app.factory('contactService',function($http){
     var contactFact=[];
     contactFact.getList=function(){
         return $http
